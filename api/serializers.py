@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import (Processor, Computer, Memory,
-                     MotherBoard, VideoBoard, User)
+                     MotherBoard, VideoBoard, User, Computer)
+from .validators import *
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -36,3 +37,14 @@ class VideoBoardSerializer(serializers.ModelSerializer):
     class Meta:
         model = VideoBoard
         fields = "__all__"
+
+class ComputerSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Computer
+        fields = "__all__"
+
+    def validate(self, data):
+        Validators.number_ram(data)
+
+        return data
