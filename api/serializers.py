@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import (Processor, Computer, Memory,
-                     MotherBoard, VideoBoard, User, Computer)
+                     MotherBoard, VideoBoard, User, Computer, Order)
 from .validators import *
 
 
@@ -51,3 +51,9 @@ class ComputerSerializer(serializers.ModelSerializer):
         Validators.processor(data)
         Validators.video_board(data)
         return data
+
+class OrderSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Order
+        fields = "__all__"
