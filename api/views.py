@@ -3,7 +3,7 @@ from .models import (User, Processor, MotherBoard, VideoBoard, Memory, Computer)
 from .serializers import *
 
 
-class UserView(viewsets.ReadOnlyModelViewSet):
+class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
