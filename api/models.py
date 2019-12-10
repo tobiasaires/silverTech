@@ -94,6 +94,18 @@ class Computer(models.Model):
     processor_id = models.ForeignKey(Processor, on_delete=models.CASCADE)
     memory_id = models.ManyToManyField(Memory)
 
+    #TODO Ajeitar essa função
+    def sum_ram(self):
+        return sum(
+            [list(size.values()) for size in Computer.objects.get(self.id).memory_id.ram_size])
+
+    def __str__(self):
+        base_string = f"{self.mother_board_id} {self.processor_id} {self.sum_ram()}"
+
+        if self.video_board_id is None:
+            return base_string
+        return f"{base_string} {self.video_board_id.video_board}"
+
 class Order(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     computer_id = models.ManyToManyField(Computer)
