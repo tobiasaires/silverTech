@@ -46,5 +46,6 @@ class ComputerSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         Validators.number_ram(data)
+        Validators.ram_size(data)
 
         return data
