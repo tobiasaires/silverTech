@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -85,3 +85,12 @@ class MotherBoard(models.Model):
 
     def __str__(self):
         return f"{self.mother_board}"
+
+
+class Computer(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    mother_board_id = models.ForeignKey(MotherBoard, on_delete=models.CASCADE)
+    video_board_id = models.ForeignKey(
+        VideoBoard, on_delete=models.CASCADE, blank=False, null=True)
+    processor_id = models.ForeignKey(Processor, on_delete=models.CASCADE)
+    memory_id = models.ManyToManyField(Memory)
