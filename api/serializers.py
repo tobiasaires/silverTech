@@ -38,6 +38,7 @@ class VideoBoardSerializer(serializers.ModelSerializer):
         model = VideoBoard
         fields = "__all__"
 
+
 class ComputerSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -48,4 +49,5 @@ class ComputerSerializer(serializers.ModelSerializer):
         Validators.number_ram(data)
         Validators.ram_size(data)
         Validators.processor(data)
+        Validators.video_board(data)
         return data

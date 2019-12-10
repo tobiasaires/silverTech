@@ -41,3 +41,16 @@ class Validators:
                     f"A Placa mãe selecionada não suporta essa marca de processador. Suportada {supported_brand} Pedida: {requested_brand}"
                 )
             )
+
+    def video_board(data):
+
+        has_video_integrated = data['mother_board_id'].has_integrated_video
+
+        print(has_video_integrated)
+
+        if( not has_video_integrated and not data['video_board_id']):
+            raise (
+                serializers.ValidationError(
+                    "A Placa mãe selecionada requer uma placa de vídeo"
+                )
+            )
