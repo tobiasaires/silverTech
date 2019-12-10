@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from .models import (User, Processor, MotherBoard, VideoBoard, Memory)
+from .models import (User, Processor, MotherBoard, VideoBoard, Memory, Computer)
 from .serializers import *
 
 
@@ -26,3 +26,7 @@ class VideoBoardView(viewsets.ReadOnlyModelViewSet):
 class MemoryView(viewsets.ReadOnlyModelViewSet):
     queryset = Memory.objects.all()
     serializer_class = MemorySerializer
+
+class ComputerView(viewsets.ModelViewSet):
+    queryset = Computer.objects.all()
+    serializer_class = ComputerSerializer
