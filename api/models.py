@@ -88,9 +88,15 @@ class MotherBoard(models.Model):
 
 
 class Computer(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     mother_board_id = models.ForeignKey(MotherBoard, on_delete=models.CASCADE)
     video_board_id = models.ForeignKey(
         VideoBoard, on_delete=models.CASCADE, blank=False, null=True)
     processor_id = models.ForeignKey(Processor, on_delete=models.CASCADE)
     memory_id = models.ManyToManyField(Memory)
+
+class Order(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    computer_id = models.ManyToManyField(Computer)
+
+    def __str__(self):
+        return f"Usuário {self.user_id.username} fez o pedido do computador: {self.computador_id}"
