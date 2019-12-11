@@ -1,0 +1,1 @@
+web: gunicorn silvertech.wsgi --log-file -
