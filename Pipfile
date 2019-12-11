@@ -14,6 +14,7 @@ autopep8 = "*"
 pylint-django = "*"
 django-filter = "*"
 django-rest-swagger = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.6"
