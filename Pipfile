@@ -12,6 +12,7 @@ pygments = "==2.4.2"
 pylint = "*"
 autopep8 = "*"
 pylint-django = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.6"
