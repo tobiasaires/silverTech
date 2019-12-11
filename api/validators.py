@@ -38,10 +38,10 @@ class Validators:
         if(supported_brand != 'Ambos' and supported_brand != requested_brand):
             raise (
                 serializers.ValidationError(
-                    f"A Placa mãe selecionada não suporta essa marca de processador. Suportada {supported_brand} Pedida: {requested_brand}"
+                    f"A Placa mãe selecionada não suporta essa marca de processador. Suportada: {supported_brand} Pedida: {requested_brand}"
                 )
             )
-
+    @staticmethod
     def video_board(data):
 
         has_video_integrated = data['mother_board_id'].has_integrated_video
